@@ -1,21 +1,10 @@
 import { getQueryParam } from "./javascript/params.js";
 import { fetchPokemon, fetchPokemonSpecies } from "./javascript/pokeapi.js";
-import { formatWeight, formatHeight, getEnglishDescription } from "./javascript/formatters.js";
-import { TypeBadge } from "./javascript/typeBadge.js";
-import { StatBar } from "./javascript/statbar.js";
+import { DetailView } from "./javascript/detailView.js";
 
-const name = getQueryParam("name")
-const pokemon = await fetchPokemon(name)
-const species = await fetchPokemonSpecies(pokemon.species.name)
-const root = document.getElementById("root")
+const name = getQueryParam("name");
+const pokemon = await fetchPokemon(name);
+const species = await fetchPokemonSpecies(pokemon.species.name);
 
-pokemon.types.forEach((entry) => {
-    root.append(new TypeBadge(entry.type.name).render())
-});
-
-pokemon.stats.forEach((entry) => {
-    root.append(new StatBar(entry.stat.name, entry.base_stat).render())
-})
-
-
-
+const root = document.getElementById("root");
+root.append(new DetailView(pokemon, species).render());

@@ -114,6 +114,80 @@ body {
     background: var(--type-color);
 }
 
+/* detail page */
+.detail-page #root {
+    max-width: 480px;
+    padding: 0;
+}
+
+.detail {
+    min-height: 100vh;
+    padding: 12px 8px 8px;
+    background: var(--type-color);
+}
+
+.detail__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px;
+    color: white;
+}
+
+.detail__back {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.detail__name {
+    flex: 1;
+    margin: 0;
+    font-size: 24px;
+}
+
+.detail__number {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.detail__image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 16px auto -60px;
+    object-fit: contain;
+    position: relative;
+}
+
+.detail__card {
+    padding: 70px 16px 16px;
+    background: white;
+    border-radius: 8px;
+}
+
+.detail__types {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* bigger screen styling */
 @media (min-width: 600px) {
     .pokemon-list {
