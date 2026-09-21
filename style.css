@@ -1,5 +1,5 @@
 :root {
-    --type-color:   #666666;
+    --type-color:   #666666; /* fallback color */
     --normal-color: #AAA67F;
     --fighting-color:#C12239;
     --flying-color: #A891EC;
@@ -28,4 +28,12 @@
 
 .card__image {
     width: 100%;
+}
+
+.type-badge {
+    background: var(--type-color);
+    color: white;
+    padding: 2px 12px;
+    border-radius: 10px;
+    font-size: 10px;
 }
