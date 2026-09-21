@@ -1,6 +1,11 @@
 import { fetchPokemonList } from "./javascript/pokeapi.js";
+import { getPokemonId, formatPokemonNumber } from "./javascript/formatters.js";
+
 const list = await fetchPokemonList()
-console.log(list)
-console.log(list.length);
-console.log(list[list.length - 1]);
+const id = getPokemonId(list[3].url)
+
+console.log(id);
+console.log(formatPokemonNumber(id));
+
+
 
