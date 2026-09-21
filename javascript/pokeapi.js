@@ -18,7 +18,7 @@ async function fetchJson(url) {
     return response.json()
 }
 
-export function fetchPokemon(name) {
+export function fetchPokemonSpecies(name) {
     return fetchJson(`${BASE_URL}/pokemon-species/${name}`)
     
 }
