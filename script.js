@@ -1,11 +1,10 @@
-import { fetchPokemonList } from "./javascript/pokeapi.js";
-import { getPokemonId, formatPokemonNumber } from "./javascript/formatters.js";
+import { fetchPokemonList } from "./javascript/pokeapi";
+import { pokemonCard } from "./javascript/pokemonCard.js";
 
 const list = await fetchPokemonList()
-const id = getPokemonId(list[3].url)
+const root = document.getElementById("root")
 
-console.log(id);
-console.log(formatPokemonNumber(id));
+root.append(new pokemonCard(list[3]).render)
 
 
 
