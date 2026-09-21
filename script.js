@@ -1,10 +1,10 @@
 import { fetchPokemonList } from "./javascript/pokeapi.js";
-import { pokemonCard } from "./javascript/pokemonCard.js";
+import { pokemonList } from "./javascript/pokemonList.js";
 
-const list = await fetchPokemonList()
+const pokemons = await fetchPokemonList()
 const root = document.getElementById("root")
 
-root.append(new pokemonCard(list[3]).render())
+root.append(new pokemonList(pokemons).render())
 
 
 
