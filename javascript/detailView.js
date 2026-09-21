@@ -1,6 +1,7 @@
-import { formatPokemonNumber, capitalize } from "./formatters.js";
+import { formatPokemonNumber, capitalize, formatName, formatWeight, formatHeight, getEnglishDescription } from "./formatters.js";
 import { getPokemonImageUrl } from "./pokeapi.js";
 import { TypeBadge } from "./typeBadge.js";
+import { StatBar } from "./statbar.js";
 
 export class DetailView {
     constructor (pokemon, species) {
@@ -59,7 +60,70 @@ export class DetailView {
             types.append(new TypeBadge(entry.type.name).render())
         });
 
-        card.append(types)
+        card.append(types, this.renderAbout(), this.renderStats())
         return card
     }
-}
+
+    renderAbout() {
+        const section = document.createElement("section")
+        section.className = "detail__about"
+
+        const heading = document.createElement("h2")
+        heading.className = "detail__heading"
+        heading.textContent = "About"
+
+        const abilities = this.pokemon.abilities
+        .map((entry) => formatName(entry.ability.name))
+        .join(", ")
+
+        const facts = document.createElement("div")
+        facts.className = "detail__facts"
+        facts.append(
+            this.renderFact(formatWeight(this.pokemon.weight), "Weight"),
+            this.renderFact(formatHeight(this.pokemon.height), "Height"),
+            this.renderFact(abilities, "Abilities")
+        )
+
+        const description = document.createElement("p")
+        description.className = "detail__description"
+        description.textContent = getEnglishDescription(this.species)
+
+        section.append(heading, facts, description)
+        return section
+    }
+
+    renderFact(value, label) {
+        const fact = document.createElement("div")
+        fact.className = "detail__fact"
+
+        const valueElement = document.createElement("span")
+        valueElement.className = "detail__fact-value"
+        valueElement.textContent = value
+
+        const labelElement = document.createElement("span")
+        labelElement.className = "detail__fact-label"
+        labelElement.textContent = label
+
+        fact.append(valueElement, labelElement)
+        return fact
+    }
+
+    renderStats() {
+        const section = document.createElement("section")
+        section.className = "detail__stats"
+
+        const heading = document.createElement("h2")
+        heading.className = "detail__heading"
+        heading.textContent = "Base Stats"
+
+        section.append(heading)
+
+        this.pokemon.stats.forEach((entry) => {
+            section.append(new StatBar(entry.stat.name, entry.base_stat).render())
+        })
+        
+        return section
+    }
+
+
+} 
