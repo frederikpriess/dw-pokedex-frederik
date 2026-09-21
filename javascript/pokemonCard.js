@@ -1,5 +1,5 @@
-import { getPokemonId, formatPokemonNumber, capitalize } from "./formatters";
-import { getPokemonImageUrl } from "./pokeapi";
+import { getPokemonId, formatPokemonNumber, capitalize } from "./formatters.js";
+import { getPokemonImageUrl } from "./pokeapi.js";
 
 export class pokemonCard {
     constructor(pokemon) {
