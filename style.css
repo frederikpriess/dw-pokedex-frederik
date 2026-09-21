@@ -1,6 +1,5 @@
-/* det gjorde ondt i sjælen at bruge skrive alle farverne ind, og så finde ud af at de er en del af API'en */
 :root {
-    /* --type-color:   #666666;
+    --type-color:   #666666;
     --normal-color: #AAA67F;
     --fighting-color:#C12239;
     --flying-color: #A891EC;
@@ -18,7 +17,7 @@
     --ice-color:    #9AD6DF;
     --dragon-color: #7037FF;
     --dark-color:   #75574C;
-    --fairy-color:  #E69EAC; */
+    --fairy-color:  #E69EAC;
 }
 
 .pokemon-list {
