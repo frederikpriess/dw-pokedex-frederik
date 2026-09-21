@@ -9,7 +9,7 @@ const STAT_LABELS = {
 
 const MAX_STAT = 255;
 
-export class statBar {
+export class StatBar {
     constructor(statName, value) {
         this.statName = statName
         this.value = value
@@ -25,7 +25,7 @@ export class statBar {
 
         const value = document.createElement("span")
         value.className = "stat-bar__value"
-        value.textContent = string(this.value).padStart(3, "0")
+        value.textContent = String(this.value).padStart(3, "0")
 
         const track = document.createElement("div")
         track.className = "stat-bar__track"

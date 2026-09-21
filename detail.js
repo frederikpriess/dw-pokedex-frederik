@@ -2,6 +2,7 @@ import { getQueryParam } from "./javascript/params.js";
 import { fetchPokemon, fetchPokemonSpecies } from "./javascript/pokeapi.js";
 import { formatWeight, formatHeight, getEnglishDescription } from "./javascript/formatters.js";
 import { TypeBadge } from "./javascript/typeBadge.js";
+import { StatBar } from "./javascript/statbar.js";
 
 const name = getQueryParam("name")
 const pokemon = await fetchPokemon(name)
@@ -11,6 +12,10 @@ const root = document.getElementById("root")
 pokemon.types.forEach((entry) => {
     root.append(new TypeBadge(entry.type.name).render())
 });
+
+pokemon.stats.forEach((entry) => {
+    root.append(new StatBar(entry.stat.name, entry.base_stat).render())
+})
 
 
 
