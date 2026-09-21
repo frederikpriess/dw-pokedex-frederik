@@ -10,3 +10,7 @@ export async function fetchPokemonList(limit = 1000000, offset = 0) {
     const data = await response.json()
     return data.results;
 }
+
+export function getPokemonImageUrl(id) {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+}
