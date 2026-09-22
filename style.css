@@ -276,6 +276,18 @@ body {
     padding: 40px 16px;
 }
 
+.site-header__favorites-link svg {
+    width: 36px;
+    height: 36px;
+}
+
+.site-header__favorites-link {
+    margin-left: auto;
+    margin-right: 24px;
+    display: flex;
+}
+
+
 
 
 
