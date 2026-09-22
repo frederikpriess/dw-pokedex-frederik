@@ -9,6 +9,19 @@ export class pokemonCard {
         this.favoritesStore = favoritesStore
     }
 
+    renderHeart() {
+        const heart = createHeartPokeballIcon(this.favoritesStore.has(this.name));
+        heart.classList.add("card__heart");
+
+        heart.addEventListener("click", (event) => {
+            event.preventDefault();
+            this.favoritesStore.toggle(this.name);
+            heart.replaceWith(this.renderHeart());
+        });
+
+        return heart;
+    }
+
     render() {
         const link = document.createElement("a")
         link.className = "card"
@@ -18,16 +31,7 @@ export class pokemonCard {
         number.className = "card__number"
         number.textContent = formatPokemonNumber(this.id)
 
-        const heart = createHeartPokeballIcon(this.favoritesStore.has(this.name))
-        heart.classList.add("card__heart")
-
-        heart.addEventListener("click", (event) => {
-            event.preventDefault()
-            this.favoritesStore.toggle(this.name)
-            const updatedHeart = createHeartPokeballIcon(this.favoritesStore.has(this.name))
-            updatedHeart.classList.add("card__heart")
-            heart.replaceWith(updatedHeart)
-        })
+        const heart = this.renderHeart();
 
         const image = document.createElement("img")
         image.className = "card__image"
