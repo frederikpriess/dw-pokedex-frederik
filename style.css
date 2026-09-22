@@ -130,24 +130,11 @@ body {
 }
 
 .site-header__icon {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: white;
-    border: 2px solid #2c2c2c;
-    position: relative;
+    display: flex;
 }
 
 .site-header__icon::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -2px;
-    right: -2px;
-    height: 50%;
-    background: #dc0a2d;
-    border-bottom: 2px solid #2c2c2c;
-    border-radius: 50% 50% 0 0;
+    display: flex;
 }
 
 .site-header__title {
