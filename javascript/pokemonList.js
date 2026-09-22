@@ -7,6 +7,7 @@ export class pokemonList {
         this.pokemons = pokemons
         this.container = null
         this.visibleCount = BATCH_SIZE
+        this.activeQuery = ""
     }
 
     render() {
@@ -25,16 +26,25 @@ export class pokemonList {
         });
     }
 
+    getMatches() {
+        return this.pokemons.filter((pokemon) => 
+            pokemon.name.includes(this.activeQuery)
+        )
+    }
+
     loadMore() {
         this.visibleCount += BATCH_SIZE
-        this.renderCards(this.pokemons.slice(0, this.visibleCount))
+
+        if (this.activeQuery) {
+            this.renderCards(this.getMatches().slice(0, this.visibleCount))
+        }   else {
+            this.renderCards(this.pokemons.slice(0, this.visibleCount))
+        }
     }
 
     filter(query) {
-        const normalizedQuery = query.trim().toLowerCase()
-        const matches = this.pokemons.filter((pokemon) =>
-            pokemon.name.includes(normalizedQuery)    
-        )
-        this.renderCards(matches)
+        this.activeQuery = query.trim().toLowerCase()
+        this.visibleCount = BATCH_SIZE
+        this.renderCards(this.getMatches().slice(0, this.visibleCount))
     }
 }
