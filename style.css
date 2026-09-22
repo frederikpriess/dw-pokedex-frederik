@@ -188,6 +188,7 @@ body {
     background-repeat: no-repeat;
     opacity: 0.15;
     z-index: 0;
+    pointer-events: none;
 }
 
 .detail__header {
@@ -291,6 +292,15 @@ body {
 
 .card {
     position: relative;
+}
+
+.detail__heart {
+    display: flex;
+}
+
+.detail__heart svg {
+    width: 26px;
+    height: 26px;
 }
 
 .empty-message {

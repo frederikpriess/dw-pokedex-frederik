@@ -2,12 +2,25 @@ import { formatPokemonNumber, capitalize, formatName, formatWeight, formatHeight
 import { getPokemonImageUrl } from "./pokeapi.js";
 import { TypeBadge } from "./typeBadge.js";
 import { StatBar } from "./statbar.js";
+import { createHeartPokeballIcon } from "./icons.js";
 
 export class DetailView {
-    constructor (pokemon, species) {
+    constructor (pokemon, species, favoritesStore) {
         this.pokemon = pokemon
         this.species = species
+        this.favoritesStore = favoritesStore
     }
+
+    renderHeart() {
+        const heart = createHeartPokeballIcon(this.favoritesStore.has(this.pokemon.name))
+        heart.classList.add("detail__heart")
+
+        heart.addEventListener("click", () => {
+            this.favoritesStore.toggle(this.pokemon.name)
+            heart.replaceWith(this.renderHeart())
+        })
+        return heart
+    }   
 
     render() {
         const view = document.createElement("div")
@@ -33,11 +46,13 @@ export class DetailView {
         name.className = "detail__name"
         name.textContent = capitalize(this.pokemon.name)
 
+        const heart = this.renderHeart()
+
         const number = document.createElement("span")
         number.className = "detail__number"
         number.textContent = formatPokemonNumber(this.pokemon.id)
 
-        header.append(back, name, number)
+        header.append(back, name, heart, number)
         return header
     }
 
