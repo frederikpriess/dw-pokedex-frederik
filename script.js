@@ -7,15 +7,9 @@ import { createHeartPokeballIcon } from "./javascript/icons.js";
 const pokemons = await fetchPokemonList()
 const root = document.getElementById("root")
 
-root.append(createHeartPokeballIcon(false))
-root.append(createHeartPokeballIcon(true))
-
-
-
-
 const favorites = new FavoritesStore()
 
-const list = new pokemonList(pokemons)
+const list = new pokemonList(pokemons, favorites)
 
 const header = new Header((query) => {
     list.filter(query)

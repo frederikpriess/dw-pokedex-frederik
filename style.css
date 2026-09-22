@@ -14,25 +14,26 @@ body {
 }
 
 :root {
-    --type-color:   #666666; /* fallback color */
+    --type-color: #666666;
+    /* fallback color */
     --normal-color: #AAA67F;
-    --fighting-color:#C12239;
+    --fighting-color: #C12239;
     --flying-color: #A891EC;
     --ground-color: #DEC16B;
     --poison-color: #A43E9E;
-    --rock-color:   #B69E31;
-    --bug-color:    #A7B723;
-    --ghost-color:  #70559B;
-    --steel-color:  #B7B9D0;
-    --fire-color:   #F57D31;
-    --water-color:  #6493EB;
-    --grass-color:  #74CB48;
-    --electric-color:#F9CF30;
-    --psychic-color:#FB5584;
-    --ice-color:    #9AD6DF;
+    --rock-color: #B69E31;
+    --bug-color: #A7B723;
+    --ghost-color: #70559B;
+    --steel-color: #B7B9D0;
+    --fire-color: #F57D31;
+    --water-color: #6493EB;
+    --grass-color: #74CB48;
+    --electric-color: #F9CF30;
+    --psychic-color: #FB5584;
+    --ice-color: #9AD6DF;
     --dragon-color: #7037FF;
-    --dark-color:   #75574C;
-    --fairy-color:  #E69EAC;
+    --dark-color: #75574C;
+    --fairy-color: #E69EAC;
 }
 
 .pokemon-list {
@@ -41,6 +42,7 @@ body {
     gap: 8px;
     padding: 12px;
 }
+
 /* card Styling */
 .card {
     display: flex;
@@ -54,8 +56,9 @@ body {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
+
 .card__number {
-    align-self: flex-end;
+    align-self: flex-start;
     padding: 4px 6px 0;
     font-size: 8px;
 }
@@ -94,7 +97,7 @@ body {
     text-align: right;
     font-weight: bold;
     font-size: 10px;
-    color:var(--type-color)
+    color: var(--type-color)
 }
 
 .stat-bar__value {
@@ -240,7 +243,7 @@ body {
 }
 
 .detail__description {
-    margin:12px 0 0;
+    margin: 12px 0 0;
     font-size: 11px;
     line-height: 1.4;
 }
@@ -255,6 +258,16 @@ body {
 .heart-icon {
     display: flex;
     cursor: pointer;
+}
+
+.card__heart {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+}
+
+.card {
+    position: relative;
 }
 
 

@@ -3,8 +3,9 @@ import { pokemonCard } from "./pokemonCard.js";
 const BATCH_SIZE = 60
 
 export class pokemonList {
-    constructor(pokemons) {
+    constructor(pokemons, favoritesStore) {
         this.pokemons = pokemons
+        this.favoritesStore = favoritesStore
         this.container = null
         this.visibleCount = BATCH_SIZE
         this.activeQuery = ""
@@ -21,7 +22,7 @@ export class pokemonList {
     renderCards(pokemons) {
         this.container.innerHTML = ""
         pokemons.forEach((pokemon) => {
-            const card = new pokemonCard(pokemon)
+            const card = new pokemonCard(pokemon, this.favoritesStore)
             this.container.append(card.render())
         });
     }
