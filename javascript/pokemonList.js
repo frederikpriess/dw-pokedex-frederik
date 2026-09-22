@@ -1,15 +1,18 @@
 import { pokemonCard } from "./pokemonCard.js";
 
+const BATCH_SIZE = 60
+
 export class pokemonList {
     constructor(pokemons) {
         this.pokemons = pokemons
         this.container = null
+        this.visibleCount = BATCH_SIZE
     }
 
     render() {
-        const container = document.createElement("div")
-        container.className = "pokemon-list"
-        this.renderCards(this.pokemons)
+        this.container = document.createElement("div")
+        this.container.className = "pokemon-list"
+        this.renderCards(this.pokemons.slice(0, this.visibleCount))
 
         return this.container;
     }
@@ -20,6 +23,11 @@ export class pokemonList {
             const card = new pokemonCard(pokemon)
             this.container.append(card.render())
         });
+    }
+
+    loadMore() {
+        this.visibleCount += BATCH_SIZE
+        this.renderCards(this.pokemons.slice(0, this.visibleCount))
     }
 
     filter(query) {

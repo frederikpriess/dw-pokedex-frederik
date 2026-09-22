@@ -15,7 +15,18 @@ searchInput.addEventListener("input", () => {
     list.filter(searchInput.value)
 })
 
-root.append(searchInput, list.render())
+const sentinel = document.createElement("div")
+sentinel.className = "sentinel"
+
+const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        list.loadMore()
+    }
+})
+
+observer.observe(sentinel)
+
+root.append(searchInput, list.render(), sentinel)
 
 
 
