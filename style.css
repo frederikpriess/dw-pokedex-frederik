@@ -251,6 +251,11 @@ body {
     gap: 6px;
 }
 
+/* favorite */
+.heart-icon {
+    display: flex;
+    cursor: pointer;
+}
 
 
 

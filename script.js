@@ -2,9 +2,16 @@ import { fetchPokemonList } from "./javascript/pokeapi.js";
 import { pokemonList } from "./javascript/pokemonList.js";
 import { Header } from "./javascript/header.js";
 import { FavoritesStore } from "./javascript/FavoritesStore.js";
+import { createHeartPokeballIcon } from "./javascript/icons.js";
 
 const pokemons = await fetchPokemonList()
 const root = document.getElementById("root")
+
+root.append(createHeartPokeballIcon(false))
+root.append(createHeartPokeballIcon(true))
+
+
+
 
 const favorites = new FavoritesStore()
 
