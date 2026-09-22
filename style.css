@@ -154,6 +154,13 @@ body {
     font-size: 14px;
 }
 
+.site-header__home-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+}
 
 /* detail page */
 .detail-page #root {
@@ -286,12 +293,6 @@ body {
     margin-right: 24px;
     display: flex;
 }
-
-
-
-
-
-
 
 /* bigger screen styling */
 @media (min-width: 600px) {

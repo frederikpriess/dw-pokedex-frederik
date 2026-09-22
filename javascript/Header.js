@@ -33,7 +33,13 @@ export class Header {
         title.className = " site-header__title"
         title.textContent = "Pokédex"
 
-        titleRow.append(icon, title, favoritesLink)
+        const homeLink = document.createElement("a")
+        homeLink.className = "site-header__home-link"
+        homeLink.href = "index.html"
+        homeLink.setAttribute("aria-label", "Back to pokémon list")
+        homeLink.append(icon, title)
+
+        titleRow.append(homeLink, favoritesLink)
 
         const searchInput = document.createElement("input")
         searchInput.type = "search"
