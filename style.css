@@ -172,6 +172,22 @@ body {
     min-height: 100vh;
     padding: 12px 8px 8px;
     background: var(--type-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.detail::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 220px;
+    height: 220px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206 208" fill="none"><path d="M127.709 104C127.709 117.676 116.622 128.762 102.947 128.762C89.2712 128.762 78.1849 117.676 78.1849 104C78.1849 90.3244 89.2712 79.2381 102.947 79.2381C116.622 79.2381 127.709 90.3244 127.709 104Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M102.947 208C155.34 208 198.684 169.257 205.894 118.857H144.982C138.863 136.169 122.353 148.571 102.947 148.571C83.5401 148.571 67.0303 136.169 60.9116 118.857H0C7.20912 169.257 50.5535 208 102.947 208ZM60.9116 89.1429H0C7.20912 38.7431 50.5535 0 102.947 0C155.34 0 198.684 38.7431 205.894 89.1429H144.982C138.863 71.8314 122.353 59.4286 102.947 59.4286C83.5401 59.4286 67.0303 71.8314 60.9116 89.1429ZM127.709 104C127.709 117.676 116.622 128.762 102.947 128.762C89.2712 128.762 78.1849 117.676 78.1849 104C78.1849 90.3244 89.2712 79.2381 102.947 79.2381C116.622 79.2381 127.709 90.3244 127.709 104Z" fill="white"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 0;
 }
 
 .detail__header {
