@@ -1,5 +1,12 @@
 const BASE_URL = "https://pokeapi.co/api/v2"
 
+export async function fetchPokemonsByName(names) {
+    const pokemons = await Promise.all(
+        names.map((name) => fetchPokemon(name))
+    )
+    return pokemons
+}
+
 export async function fetchPokemonList(limit = 1000000, offset = 0) {
     const data = await fetchJson(`${BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
     return data.results;
