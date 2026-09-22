@@ -1,9 +1,14 @@
 import { fetchPokemonList } from "./javascript/pokeapi.js";
 import { pokemonList } from "./javascript/pokemonList.js";
 import { Header } from "./javascript/header.js";
+import { FavoritesStore } from "./javascript/FavoritesStore.js";
 
 const pokemons = await fetchPokemonList()
 const root = document.getElementById("root")
+
+const favorites = new FavoritesStore()
+favorites.toggle("pikachu")
+console.log(favorites.favorites)
 
 const list = new pokemonList(pokemons)
 
