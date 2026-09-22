@@ -32,3 +32,8 @@ export function getEnglishDescription(species) {
     /* uses a regular expression to remove odd gaps */
     return entry.flavor_text.replace(/\s+/g, " ")
 }
+
+/* adds spaces in the abilities instead of there being a "-", "solar-power" becomes "solar power" */
+export function formatName(text) {
+    return capitalize(text.replaceAll("-", " "))
+}

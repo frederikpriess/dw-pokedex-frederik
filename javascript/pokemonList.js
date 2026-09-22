@@ -3,18 +3,30 @@ import { pokemonCard } from "./pokemonCard.js";
 export class pokemonList {
     constructor(pokemons) {
         this.pokemons = pokemons
+        this.container = null
     }
 
     render() {
         const container = document.createElement("div")
         container.className = "pokemon-list"
+        this.renderCards(this.pokemons)
 
-        this.pokemons.forEach((pokemon) => {
+        return this.container;
+    }
+
+    renderCards(pokemons) {
+        this.container.innerHTML = ""
+        pokemons.forEach((pokemon) => {
             const card = new pokemonCard(pokemon)
-            container.append(card.render())
-            
+            this.container.append(card.render())
         });
+    }
 
-        return container;
+    filter(query) {
+        const normalizedQuery = query.trim().toLowerCase()
+        const matches = this.pokemons.filter((pokemon) =>
+            pokemon.name.includes(normalizedQuery)    
+        )
+        this.renderCards(matches)
     }
 }

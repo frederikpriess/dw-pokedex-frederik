@@ -172,14 +172,46 @@ body {
     gap: 16px;
 }
 
+.detail__heading {
+    margin: 16px 0 8px;
+    text-align: center;
+    font-size: 14px;
+    color: var(var(--type-color));
+}
 
+.detail__facts {
+    display: flex;
+    gap: 8px;
+    text-align: center;
+}
 
+.detail__fact {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 
+.detail__fact-value {
+    font-size: 11px;
+}
 
+.detail__fact-label {
+    font-size: 9px;
+    color: var(#666666);
+}
 
+.detail__description {
+    margin:12px 0 0;
+    font-size: 11px;
+    line-height: 1.4;
+}
 
-
-
+.detail__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 
 
 
