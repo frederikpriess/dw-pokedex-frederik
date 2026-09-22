@@ -1,15 +1,15 @@
 import { fetchPokemonList } from "./javascript/pokeapi.js";
 import { pokemonList } from "./javascript/pokemonList.js";
+import { Header } from "./javascript/header.js";
 
 const pokemons = await fetchPokemonList()
 const root = document.getElementById("root")
 
-const searchInput = document.createElement("input")
-searchInput.type = "search"
-searchInput.className = "seach-input"
-searchInput.placeholder = "Search Pokémon.."
-
 const list = new pokemonList(pokemons)
+
+const header = new Header((query) => {
+    list.filter(query)
+})
 
 searchInput.addEventListener("input", () => {
     list.filter(searchInput.value)
@@ -26,7 +26,7 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(sentinel)
 
-root.append(searchInput, list.render(), sentinel)
+root.append(header.render(), list.render(), sentinel)
 
 
 
