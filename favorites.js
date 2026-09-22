@@ -21,7 +21,7 @@ if (favorites.favorites.length === 0) {
     container.className = "pokemon-list"
 
     pokemons.forEach((pokemon) => {
-        const card = new pokemonCard(pokemon, favorites)
+        const card = new pokemonCard(pokemon, favorites, "favorites.html")
         container.append(card.render())
     })
 

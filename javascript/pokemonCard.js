@@ -3,10 +3,11 @@ import { getPokemonImageUrl } from "./pokeapi.js";
 import { createHeartPokeballIcon } from "./icons.js";
 
 export class pokemonCard {
-    constructor(pokemon, favoritesStore) {
+    constructor(pokemon, favoritesStore, returnTo = "index.html") {
         this.name = pokemon.name
         this.id = pokemon.id ?? getPokemonId(pokemon.url)
         this.favoritesStore = favoritesStore
+        this.returnTo = returnTo
     }
 
     renderHeart() {
@@ -25,7 +26,7 @@ export class pokemonCard {
     render() {
         const link = document.createElement("a")
         link.className = "card"
-        link.href = `detail.html?name=${this.name}`
+        link.href = `detail.html?name=${this.name}&from=${this.returnTo}`
 
         const number = document.createElement("span")
         number.className = "card__number"

@@ -3,6 +3,7 @@ import { getPokemonImageUrl } from "./pokeapi.js";
 import { TypeBadge } from "./typeBadge.js";
 import { StatBar } from "./statbar.js";
 import { createHeartPokeballIcon } from "./icons.js";
+import { getQueryParam } from "./params.js";
 
 export class DetailView {
     constructor (pokemon, species, favoritesStore) {
@@ -38,7 +39,7 @@ export class DetailView {
 
         const back = document.createElement("a")
         back.className = "detail__back"
-        back.href = "index.html"
+        back.href = getQueryParam("from") ?? "index.html"
         back.textContent = "←"
         back.setAttribute("aria-label", "back to list")
 
