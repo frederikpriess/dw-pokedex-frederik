@@ -11,10 +11,6 @@ const header = new Header((query) => {
     list.filter(query)
 })
 
-searchInput.addEventListener("input", () => {
-    list.filter(searchInput.value)
-})
-
 const sentinel = document.createElement("div")
 sentinel.className = "sentinel"
 
