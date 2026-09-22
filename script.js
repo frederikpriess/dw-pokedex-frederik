@@ -7,8 +7,6 @@ const pokemons = await fetchPokemonList()
 const root = document.getElementById("root")
 
 const favorites = new FavoritesStore()
-favorites.toggle("pikachu")
-console.log(favorites.favorites)
 
 const list = new pokemonList(pokemons)
 
