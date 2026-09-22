@@ -270,6 +270,11 @@ body {
     position: relative;
 }
 
+.empty-message {
+    text-align: center;
+    color: #666666;
+    padding: 40px 16px;
+}
 
 
 

@@ -18,7 +18,7 @@ if (favorites.favorites.length === 0) {
     const pokemons = await fetchPokemonsByName(favorites.favorites)
 
     const container = document.createElement("div")
-    container.className = "Pokémon-list"
+    container.className = "pokemon-list"
 
     pokemons.forEach((pokemon) => {
         const card = new pokemonCard(pokemon, favorites)

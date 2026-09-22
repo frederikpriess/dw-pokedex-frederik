@@ -1,9 +1,17 @@
+import { createHeartPokeballIcon } from "./icons.js"
+
 export class Header {
     constructor(onSearch) {
         this.onSearch = onSearch
     }
 
     render() {
+        const favoritesLink = document.createElement("a")
+        favoritesLink.className = "site-header__favorites-link"
+        favoritesLink.href = "favorites.html"
+        favoritesLink.setAttribute("aria-label", "View favorites")
+        favoritesLink.append(createHeartPokeballIcon(true))
+
         const header = document.createElement("header")
         header.className = "site-header"
 
@@ -25,7 +33,7 @@ export class Header {
         title.className = " site-header__title"
         title.textContent = "Pokédex"
 
-        titleRow.append(icon, title)
+        titleRow.append(icon, title, favoritesLink)
 
         const searchInput = document.createElement("input")
         searchInput.type = "search"

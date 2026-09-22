@@ -5,7 +5,7 @@ import { createHeartPokeballIcon } from "./icons.js";
 export class pokemonCard {
     constructor(pokemon, favoritesStore) {
         this.name = pokemon.name
-        this.id = getPokemonId ?? getPokemonId(pokemon.url)
+        this.id = pokemon.id ?? getPokemonId(pokemon.url)
         this.favoritesStore = favoritesStore
     }
 
@@ -36,7 +36,7 @@ export class pokemonCard {
         const image = document.createElement("img")
         image.className = "card__image"
         image.src = getPokemonImageUrl(this.id)
-        image.alt = "this.name"
+        image.alt = this.name
         image.loading = "lazy"
 
         const name = document.createElement("span")
