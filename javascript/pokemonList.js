@@ -21,26 +21,28 @@ export class pokemonList {
 
     renderCards(pokemons) {
         this.container.innerHTML = ""
+        this.appendCards(pokemons)
+    }
+
+    appendCards(pokemons) {
         pokemons.forEach((pokemon) => {
-            const card = new pokemonCard(pokemon, this.favoritesStore, "index.html") /* i dont think index.html is needed, but i put it there for good measure */
+            const card = new pokemonCard(pokemon, this.favoritesStore, "index.html")
             this.container.append(card.render())
         });
+    }
+
+    loadMore() {
+        const previousCount = this.visibleCount
+        this.visibleCount += BATCH_SIZE
+
+        const source = this.activeQuery ? this.getMatches() : this.pokemons
+        this.appendCards(source.slice(previousCount, this.visibleCount))
     }
 
     getMatches() {
         return this.pokemons.filter((pokemon) => 
             pokemon.name.includes(this.activeQuery)
         )
-    }
-
-    loadMore() {
-        this.visibleCount += BATCH_SIZE
-
-        if (this.activeQuery) {
-            this.renderCards(this.getMatches().slice(0, this.visibleCount))
-        }   else {
-            this.renderCards(this.pokemons.slice(0, this.visibleCount))
-        }
     }
 
     filter(query) {
