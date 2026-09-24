@@ -22,7 +22,7 @@ export class pokemonList {
     renderCards(pokemons) {
         this.container.innerHTML = ""
         pokemons.forEach((pokemon) => {
-            const card = new pokemonCard(pokemon, this.favoritesStore, "index.html") /* i dont think index.html is needed, but i put it there for good measure */
+            const card = new pokemonCard(pokemon, this.favoritesStore, "index.html") /* I dont think index.html is needed, but i put it there for good measure */
             this.container.append(card.render())
         });
     }
