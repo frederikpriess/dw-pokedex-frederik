@@ -1,5 +1,6 @@
 import { createHeartPokeballIcon } from "./icons.js"
 
+
 export class Header {
     constructor(onSearch) {
         this.onSearch = onSearch
