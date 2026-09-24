@@ -1,6 +1,7 @@
 import { pokemonCard } from "./pokemonCard.js";
 
 const BATCH_SIZE = 60
+const TRIGGER_OFFSET = 5
 
 export class pokemonList {
     constructor(pokemons, favoritesStore) {
@@ -9,6 +10,15 @@ export class pokemonList {
         this.container = null
         this.visibleCount = BATCH_SIZE
         this.activeQuery = ""
+
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    this.observer.unobserve(entry.target)
+                    this.loadMore()
+                }
+            })
+        })
     }
 
     render() {
@@ -21,10 +31,27 @@ export class pokemonList {
 
     renderCards(pokemons) {
         this.container.innerHTML = ""
-        pokemons.forEach((pokemon) => {
-            const card = new pokemonCard(pokemon, this.favoritesStore, "index.html") /* I dont think index.html is needed, but i put it there for good measure */
-            this.container.append(card.render())
+        this.appendCards(pokemons)
+    }
+
+    appendCards(pokemons) {
+        const elements = pokemons.map((pokemon) => {
+            const card = new pokemonCard(pokemon, this.favoritesStore, "index.html");
+            const element = card.render();
+            this.container.append(element);
+            return element;
         });
+
+        this.watchTrigger(elements);
+    }
+
+    watchTrigger(elements) {
+        const triggerIndex = Math.max(elements.length - TRIGGER_OFFSET, 0);
+        const triggerCard = elements[triggerIndex];
+
+        if (triggerCard) {
+            this.observer.observe(triggerCard);
+        }
     }
 
     getMatches() {
@@ -34,13 +61,13 @@ export class pokemonList {
     }
 
     loadMore() {
-        this.visibleCount += BATCH_SIZE
+        const source = this.activeQuery ? this.getMatches() : this.pokemons
+        if ( this.visibleCount >= source.length) return
 
-        if (this.activeQuery) {
-            this.renderCards(this.getMatches().slice(0, this.visibleCount))
-        }   else {
-            this.renderCards(this.pokemons.slice(0, this.visibleCount))
-        }
+        const previousCount = this.visibleCount
+        this.visibleCount += BATCH_SIZE
+        this.appendCards(source.slice(previousCount, this.visibleCount))
+
     }
 
     filter(query) {
