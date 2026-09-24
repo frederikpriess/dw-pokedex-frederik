@@ -43,10 +43,6 @@ body {
     padding: 12px;
 }
 
-.sentinel {
-    height: 40px;
-}
-
 /* card Styling */
 .card {
     display: flex;
