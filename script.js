@@ -1,6 +1,6 @@
-import { fetchPokemonList } from "./javascript/pokeapi.js";
-import { pokemonList } from "./javascript/pokemonList.js";
-import { Header } from "./javascript/header.js";
+import { fetchPokemonList } from "./javascript/api/pokeapi.js";
+import { pokemonList } from "./javascript/components/pokemonList.js";
+import { Header } from "./javascript/components/Header.js";
 import { FavoritesStore } from "./javascript/FavoritesStore.js";
 
 const pokemons = await fetchPokemonList()

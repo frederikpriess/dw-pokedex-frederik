@@ -1,4 +1,4 @@
-import { capitalize } from "./formatters.js";
+import { capitalize } from "../utility/formatters.js";
 
 export class TypeBadge {
     constructor(typeName) {

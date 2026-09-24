@@ -1,6 +1,6 @@
-import { getQueryParam } from "./javascript/params.js";
-import { fetchPokemon, fetchPokemonSpecies } from "./javascript/pokeapi.js";
-import { DetailView } from "./javascript/detailView.js";
+import { getQueryParam } from "./javascript/utility/params.js";
+import { fetchPokemon, fetchPokemonSpecies } from "./javascript/api/pokeapi.js";
+import { DetailView } from "./javascript/components/detailView.js";
 import { FavoritesStore } from "./javascript/FavoritesStore.js";
 
 const name = getQueryParam("name");

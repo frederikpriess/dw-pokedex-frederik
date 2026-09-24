@@ -1,9 +1,9 @@
-import { formatPokemonNumber, capitalize, formatName, formatWeight, formatHeight, getEnglishDescription } from "./formatters.js";
-import { getPokemonImageUrl } from "./pokeapi.js";
+import { formatPokemonNumber, capitalize, formatName, formatWeight, formatHeight, getEnglishDescription } from "../utility/formatters.js";
+import { getPokemonImageUrl } from "../api/pokeapi.js";
 import { TypeBadge } from "./typeBadge.js";
 import { StatBar } from "./statbar.js";
-import { createHeartPokeballIcon } from "./icons.js";
-import { getQueryParam } from "./params.js";
+import { createHeartPokeballIcon } from "../utility/icons.js";
+import { getQueryParam } from "../utility/params.js";
 
 export class DetailView {
     constructor (pokemon, species, favoritesStore) {

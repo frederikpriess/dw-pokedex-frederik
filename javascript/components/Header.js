@@ -1,4 +1,4 @@
-import { createHeartPokeballIcon } from "./icons.js"
+import { createHeartPokeballIcon } from "../utility/icons.js"
 
 
 export class Header {

@@ -1,6 +1,6 @@
-import { getPokemonId, formatPokemonNumber, capitalize } from "./formatters.js";
-import { getPokemonImageUrl } from "./pokeapi.js";
-import { createHeartPokeballIcon } from "./icons.js";
+import { getPokemonId, formatPokemonNumber, capitalize } from "../utility/formatters.js";
+import { getPokemonImageUrl } from "../api/pokeapi.js";
+import { createHeartPokeballIcon } from "../utility/icons.js";
 
 export class pokemonCard {
     constructor(pokemon, favoritesStore, returnTo = "index.html") {

@@ -1,7 +1,7 @@
-import { fetchPokemonsByName } from "./javascript/pokeapi.js";
-import { pokemonCard } from "./javascript/pokemonCard.js";
+import { fetchPokemonsByName } from "./javascript/api/pokeapi.js";
+import { pokemonCard } from "./javascript/components/pokemonCard.js";
 import { FavoritesStore } from "./javascript/FavoritesStore.js";
-import { Header } from "./javascript/header.js";
+import { Header } from "./javascript/components/Header.js";
 
 const favorites = new FavoritesStore()
 const root = document.getElementById("root")
